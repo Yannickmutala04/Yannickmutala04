@@ -1,68 +1,65 @@
-# Guide d'Intégration et de Publication sur Google Sites
+# Guide d'Hébergement Gratuit et d'Intégration sur Google Sites
 ## LIGHT ÉLEC ENGINEERING
 
-Ce document détaille, étape par étape, comment déployer et publier le site web professionnel créé pour **LIGHT ÉLEC ENGINEERING** sur la plateforme de création web gratuite **Google Sites**.
+Ce guide complet vous explique comment héberger votre site web professionnel gratuitement sur les plateformes les plus performantes (Netlify, GitHub Pages, Vercel) tout en conservant le **libre contrôle** total sur **Google Sites**.
 
-Comme Google Sites est un éditeur de site entièrement visuel et hébergé par Google Workspace, vous pouvez importer ce design professionnel et interactif extrêmement facilement.
-
----
-
-### Méthode 1 : Intégration complète du code HTML/JS (Méthode Recommandée)
-
-Cette méthode vous permet de conserver l'intégralité du design premium, des polices modernes, de la réactivité mobile, des animations, du calculateur de devis interactif et du filtrage dynamique des services.
-
-1. **Ouvrez Google Sites :**
-   - Allez sur [Google Sites](https://sites.google.com/) et connectez-vous avec votre compte Google.
-   - Cliquez sur le bouton **"+"** (Vide) pour créer un nouveau site.
-
-2. **Supprimez le header par défaut :**
-   - Survolez la bannière de titre par défaut en haut de la page blanche et cliquez sur l'icône de poubelle pour la supprimer afin d'avoir une page 100% vierge.
-
-3. **Intégrez le code HTML :**
-   - Dans le panneau latéral droit, sélectionnez l'onglet **Insérer**.
-   - Cliquez sur **Intégrer** (icône `< >`).
-   - Sélectionnez l'onglet **Intégrer le code**.
-   - Ouvrez le fichier `index.html` créé dans ce projet, copiez l'intégralité de son contenu, et collez-le dans la zone de saisie.
-   - Cliquez sur **Suivant**, puis sur **Insérer**.
-
-4. **Redimensionnez le bloc intégré :**
-   - Google Sites va insérer le site web dans un cadre.
-   - Cliquez sur les poignées bleues sur les bords du cadre et étirez-les au maximum vers le bas et sur les côtés afin de couvrir toute la largeur et la hauteur de la page sans barres de défilement internes.
+En hébergeant gratuitement le code source de ce projet (le fichier `index.html` et les images optimisées dans `assets/images/`), vous obtenez des liens URL publics permanents pour vos images et vos widgets dynamiques (le calculateur de devis, les animations). Vous pouvez ensuite les intégrer et les piloter directement depuis votre tableau de bord **Google Sites**.
 
 ---
 
-### Méthode 2 : Hébergement des Images et Reconstruction Visuelle
+### Étape 1 : Héberger le site gratuitement (3 Méthodes simples)
 
-Pour que Google Sites affiche correctement vos logos et bannières personnalisés extraits de l'affiche publicitaire :
+Choisissez l'une de ces trois plateformes gratuites pour mettre votre code et vos images en ligne en moins de 2 minutes :
 
-1. **Hébergez vos images personnalisées :**
-   - Créez un dossier public dans votre **Google Drive** ou utilisez un hébergeur d'images gratuit.
-   - Téléversez les images optimisées générées dans le dossier `assets/images/` de ce projet :
-     - `logo.png` (Logo officiel de l'entreprise)
-     - `banner_full.jpg` (Bannière grand format de fond d'écran)
-     - `partner_presentation.jpg` (Affiche de présentation de droite)
-     - `top_banner.jpg` (Bannière du haut contenant le slogan)
-     - `service_solaire.jpg`, `service_tableaux.jpg`, `service_cctv.jpg`, `service_reseaux.jpg` (Images de service d'illustration de la grille)
+#### Option A : Netlify (La plus simple, par Glisser-Déposer)
+1. Allez sur [Netlify Drop](https://app.netlify.com/drop).
+2. Glissez-déposez le dossier de ce projet contenant :
+   - Le fichier `index.html`
+   - Le dossier `assets/` (contenant le dossier `images/` et toutes les images du projet)
+3. Netlify va déployer instantanément votre site et vous fournir une URL publique sécurisée (ex: `https://light-elec-engineering.netlify.app`).
+4. Dans les paramètres de Netlify, vous pouvez changer ce nom de sous-domaine gratuitement ou y lier votre propre nom de domaine.
 
-2. **Configurez les liens d'images :**
-   - Si vous utilisez la **Méthode 1**, remplacez simplement les chemins relatifs d'images (ex: `assets/images/logo.png`) par les URLs directes de vos images hébergées en ligne.
+#### Option B : GitHub Pages (Hébergement automatique et permanent)
+1. Créez un dépôt gratuit sur [GitHub](https://github.com/).
+2. Importez-y les fichiers de ce projet (`index.html` et le dossier `assets`).
+3. Allez dans les **Settings** (Paramètres) de votre dépôt GitHub.
+4. Dans le menu latéral, cliquez sur **Pages**.
+5. Sous "Build and deployment", choisissez la branche `main` ou `master` comme source, puis cliquez sur **Save**.
+6. Votre site sera disponible publiquement sous l'URL `https://<votre-nom-dutilisateur>.github.io/<nom-du-depot>/`.
 
-3. **Reconstruction via l'éditeur visuel Google Sites (Alternative) :**
-   - Si vous préférez utiliser l'éditeur "Glisser-Déposer" natif de Google Sites :
-     - Utilisez l'onglet **Thèmes** pour choisir une palette de couleurs bleu royal et jaune.
-     - Utilisez l'outil **Zone de texte** et **Images** pour importer le texte structuré de l'affiche et les images découpées.
-     - Pour l'outil interactif de **Calculateur de devis**, insérez un bloc d'intégration de code (`< >`) avec uniquement le formulaire et le script JavaScript du calculateur présent dans notre `index.html`.
+#### Option C : Vercel (Déploiement rapide de production)
+1. Allez sur [Vercel](https://vercel.com/) et connectez-vous avec votre compte GitHub ou Google.
+2. Importez votre dépôt GitHub en un clic.
+3. Cliquez sur **Deploy**. Votre site est en ligne avec un certificat SSL gratuit (ex: `https://light-elec-engineering.vercel.app`).
 
 ---
 
-### Configuration Finale & Publication
+### Étape 2 : Intégrer et Contrôler le projet sur Google Sites
 
-1. **Associer un Domaine Personnalisé :**
-   - Dans le coin supérieur droit de Google Sites, cliquez sur l'icône de **Roue crantée** (Paramètres).
-   - Allez sur **Domaines personnalisés** > **Commencer la configuration**.
-   - Entrez votre domaine d'entreprise officiel : `www.lightelecengineering.com` (en suivant les instructions de validation de propriété Google Search Console).
+Une fois votre site hébergé gratuitement via l'une des options ci-dessus, vous disposez d'un contrôle absolu depuis **Google Sites**.
 
-2. **Publier le Site :**
-   - Cliquez sur le gros bouton bleu **Publier** en haut à droite.
-   - Choisissez une adresse web sous la forme `https://sites.google.com/view/lightelecengineering`.
-   - Cliquez sur **Publier**. Votre site professionnel est maintenant en ligne, opérationnel et prêt à propulser vos projets vers l'avenir !
+#### Méthode 1 : Intégration par URL (La plus propre)
+Cette méthode charge l'intégralité du site hébergé (avec le calculateur interactif, les filtres de services, etc.) dans votre Google Sites.
+1. Ouvrez votre projet sur [Google Sites](https://sites.google.com/).
+2. Dans le panneau de droite, cliquez sur **Insérer** > **Intégrer** (icône `< >`).
+3. Sélectionnez l'onglet **Par URL**.
+4. Saisissez l'URL publique de votre site hébergé (ex: `https://light-elec-engineering.netlify.app`).
+5. Cliquez sur **Insérer**.
+6. Étirez les bordures du cadre d'intégration sur Google Sites pour qu'il prenne toute la largeur et la hauteur de votre page sans barres de défilement.
+
+#### Méthode 2 : Intégration par Code (Idéal pour des sections spécifiques)
+Si vous préférez utiliser l'éditeur visuel natif de Google Sites pour le texte mais souhaitez intégrer notre calculateur de devis dynamique :
+1. Sur Google Sites, cliquez sur **Insérer** > **Intégrer** > **Intégrer le code**.
+2. Copiez uniquement la section du calculateur ou du formulaire de contact de notre fichier `index.html` et collez-la.
+3. Les images hébergées sur votre hébergeur gratuit s'afficheront instantanément en utilisant leur lien absolu (ex: `https://light-elec-engineering.netlify.app/assets/images/logo.png`).
+
+---
+
+### Étape 3 : Associer votre nom de domaine personnalisé
+
+Pour un rendu 100% professionnel (par exemple : `www.lightelecengineering.com`) :
+1. Allez sur les paramètres de votre **Google Sites** (icône de roue crantée).
+2. Cliquez sur **Domaines personnalisés** > **Commencer la configuration**.
+3. Saisissez votre nom de domaine.
+4. Suivez les étapes de configuration DNS indiquées par Google pour valider la propriété de votre nom de domaine auprès de votre registraire de domaine (ex: GoDaddy, Namecheap, LWS).
+5. Publiez ! Votre site professionnel sur Google Sites est désormais en ligne avec une URL unique de marque.
