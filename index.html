@@ -1,1032 +1,329 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIGHT ÉLEC ENGINEERING | Solutions Électriques Globales & Durables</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for beautiful icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            blue: '#0E3B7D', // Premium deep professional blue
-                            yellow: '#FFC72C', // Bright energy/solar yellow
-                            dark: '#0B1E36',
-                            light: '#F4F7FB'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        montserrat: ['Montserrat', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .service-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(14, 59, 125, 0.1), 0 10px 10px -5px rgba(14, 59, 125, 0.04);
-        }
-        .text-shadow-hero {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        }
-    </style>
-</head>
-<body class="font-sans text-slate-800 bg-slate-50 overflow-x-hidden">
-
-    <!-- Top Info Bar -->
-    <div class="bg-brand-dark text-white text-xs py-2 px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-2 border-b border-brand-blue/30">
-        <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-            <a href="tel:+2436589598407" class="hover:text-brand-yellow transition flex items-center gap-2">
-                <i class="fa-solid fa-phone text-brand-yellow"></i> +243 658 959 8407
-            </a>
-            <a href="mailto:lightelecengineering@gmail.com" class="hover:text-brand-yellow transition flex items-center gap-2">
-                <i class="fa-solid fa-envelope text-brand-yellow"></i> lightelecengineering@gmail.com
-            </a>
-            <span class="flex items-center gap-2">
-                <i class="fa-solid fa-location-dot text-brand-yellow"></i> Lubumbashi, RDC
-            </span>
-        </div>
-        <div class="flex items-center gap-4">
-            <span class="hidden lg:inline text-slate-300">Suivez-nous :</span>
-            <div class="flex gap-3 text-sm">
-                <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3">
-                <div class="bg-brand-blue p-2 rounded-lg flex items-center justify-center shadow-md">
-                    <i class="fa-solid fa-bolt-lightning text-brand-yellow text-2xl animate-pulse"></i>
-                </div>
-                <div>
-                    <span class="font-montserrat font-black text-xl tracking-tight text-brand-blue block">LIGHT ÉLEC</span>
-                    <span class="text-xs font-bold tracking-widest text-slate-500 uppercase block -mt-1">ENGINEERING</span>
-                </div>
-            </a>
-
-            <!-- Desktop Menu -->
-            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wide text-brand-dark/90">
-                <a href="#" class="hover:text-brand-blue transition text-brand-blue">Accueil</a>
-                <a href="#about" class="hover:text-brand-blue transition">À Propos</a>
-                <a href="#services" class="hover:text-brand-blue transition">Nos Services</a>
-                <a href="#workflow" class="hover:text-brand-blue transition">Méthodologie</a>
-                <a href="#estimate" class="hover:text-brand-blue/80 transition">Devis Gratuit</a>
-                <a href="#contact" class="bg-brand-blue text-white px-5 py-2.5 rounded-full hover:bg-brand-dark shadow-md hover:shadow-lg transition">Nous Contacter</a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-brand-blue text-2xl focus:outline-none" aria-label="Ouvrir le menu">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 py-6 space-y-4 shadow-xl transition-all">
-            <a href="#" class="block font-medium text-brand-dark hover:text-brand-blue py-1">Accueil</a>
-            <a href="#about" class="block font-medium text-brand-dark hover:text-brand-blue py-1">À Propos</a>
-            <a href="#services" class="block font-medium text-brand-dark hover:text-brand-blue py-1">Nos Services</a>
-            <a href="#workflow" class="block font-medium text-brand-dark hover:text-brand-blue py-1">Méthodologie</a>
-            <a href="#estimate" class="block font-medium text-brand-dark hover:text-brand-blue py-1">Calculateur de Devis</a>
-            <a href="#contact" class="block bg-brand-blue text-white text-center py-3 rounded-xl font-bold hover:bg-brand-dark transition">Nous Contacter</a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative min-h-[85vh] flex items-center bg-slate-900 overflow-hidden">
-        <!-- Background Banner with overlay -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-multiply" style="background-image: url('assets/images/banner_full.jpg');"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/75 to-transparent"></div>
-
-        <!-- Glowing light effects -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-yellow/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-blue/30 rounded-full blur-3xl"></div>
-
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-7 space-y-8 text-white">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-yellow/15 border border-brand-yellow/30 text-brand-yellow text-sm font-bold tracking-wide">
-                    <i class="fa-solid fa-star animate-spin"></i> SOLUTIONS ÉLECTRIQUES GLOBALES
-                </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-montserrat font-extrabold tracking-tight leading-tight">
-                    L'ÉNERGIE QUI <span class="text-brand-yellow">PROPULSE</span> VOS PROJETS VERS L'AVENIR
-                </h1>
-                <p class="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed">
-                    Votre partenaire de confiance pour des solutions électriques innovantes, durables et sécurisées. De l'étude à la mise en service, nous concrétisons vos projets industriels, commerciaux et résidentiels.
-                </p>
-
-                <!-- Quick features -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-semibold text-slate-200">
-                    <div class="flex items-center gap-3">
-                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
-                        Qualité Garantie & Matériel Certifié
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
-                        Intervention & Dépannage Rapide 24/7
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
-                        Équipe de Professionnels Certifiés
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
-                        Sécurité rigoureuse sur tous nos chantiers
-                    </div>
-                </div>
-
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#services" class="bg-brand-yellow text-brand-dark px-8 py-4 rounded-full font-extrabold hover:bg-white shadow-lg shadow-brand-yellow/20 hover:shadow-white/20 transition-all flex items-center gap-3">
-                        Découvrir nos services <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <a href="#estimate" class="bg-transparent hover:bg-white/10 text-white border-2 border-white/30 hover:border-white px-8 py-4 rounded-full font-extrabold transition-all">
-                        Simulateur de Devis
-                    </a>
-                </div>
-            </div>
-
-            <!-- Header graphic / Poster widget -->
-            <div class="lg:col-span-5 hidden lg:block relative">
-                <div class="relative bg-brand-dark p-6 rounded-3xl border border-white/10 shadow-2xl overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/30 to-brand-yellow/10 opacity-50"></div>
-                    <img src="assets/images/partner_presentation.jpg" alt="LIGHT ÉLEC Presentation" class="w-full h-auto rounded-2xl shadow-inner object-cover border border-white/5 group-hover:scale-[1.02] transition-transform duration-500">
-                    <div class="absolute bottom-10 left-10 right-10 bg-brand-dark/90 backdrop-blur border border-white/10 p-4 rounded-xl text-center">
-                        <p class="text-brand-yellow font-bold text-sm">VOTRE SATISFACTION</p>
-                        <p class="text-white text-xs text-slate-300">Est au cœur de chacun de nos chantiers</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Company Key Pillars / Strengths -->
-    <section class="py-12 bg-brand-blue text-white relative z-10 -mt-8 mx-4 md:mx-12 rounded-2xl shadow-xl max-w-7xl lg:mx-auto">
-        <div class="px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 divide-y md:divide-y-0 lg:divide-x divide-white/10">
-            <!-- Pillar 1 -->
-            <div class="flex flex-col items-center text-center p-4">
-                <div class="w-12 h-12 rounded-full bg-brand-yellow/20 text-brand-yellow flex items-center justify-center mb-4 text-xl">
-                    <i class="fa-solid fa-award"></i>
-                </div>
-                <h3 class="font-montserrat font-bold text-base mb-1">Qualité Garantie</h3>
-                <p class="text-xs text-slate-300">Des prestations de haut niveau conformes aux normes internationales.</p>
-            </div>
-            <!-- Pillar 2 -->
-            <div class="flex flex-col items-center text-center p-4 pt-8 md:pt-4">
-                <div class="w-12 h-12 rounded-full bg-brand-yellow/20 text-brand-yellow flex items-center justify-center mb-4 text-xl">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h3 class="font-montserrat font-bold text-base mb-1">Sécurité Avant Tout</h3>
-                <p class="text-xs text-slate-300">Zéro compromis sur la protection de vos infrastructures et des personnes.</p>
-            </div>
-            <!-- Pillar 3 -->
-            <div class="flex flex-col items-center text-center p-4 pt-8 md:pt-4">
-                <div class="w-12 h-12 rounded-full bg-brand-yellow/20 text-brand-yellow flex items-center justify-center mb-4 text-xl">
-                    <i class="fa-solid fa-truck-fast"></i>
-                </div>
-                <h3 class="font-montserrat font-bold text-base mb-1">Intervention Rapide</h3>
-                <p class="text-xs text-slate-300">Disponibilité immédiate pour minimiser les arrêts opérationnels.</p>
-            </div>
-            <!-- Pillar 4 -->
-            <div class="flex flex-col items-center text-center p-4 pt-8 lg:pt-4">
-                <div class="w-12 h-12 rounded-full bg-brand-yellow/20 text-brand-yellow flex items-center justify-center mb-4 text-xl">
-                    <i class="fa-solid fa-user-tie"></i>
-                </div>
-                <h3 class="font-montserrat font-bold text-base mb-1">Équipe Professionnelle</h3>
-                <p class="text-xs text-slate-300">Ingénieurs et techniciens hautement qualifiés et expérimentés.</p>
-            </div>
-            <!-- Pillar 5 -->
-            <div class="flex flex-col items-center text-center p-4 pt-8 lg:pt-4">
-                <div class="w-12 h-12 rounded-full bg-brand-yellow/20 text-brand-yellow flex items-center justify-center mb-4 text-xl">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                </div>
-                <h3 class="font-montserrat font-bold text-base mb-1">Matériels Certifiés</h3>
-                <p class="text-xs text-slate-300">Utilisation exclusive d'équipements de marques agréées et durables.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
-            <!-- Left Side: Visual graphic from image brochure -->
-            <div class="relative">
-                <div class="absolute -top-4 -left-4 w-72 h-72 bg-brand-blue/5 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-brand-yellow/10 rounded-full blur-3xl"></div>
-
-                <div class="relative space-y-4">
-                    <img src="assets/images/top_banner.jpg" alt="LIGHT ELEC banner" class="w-full h-auto rounded-3xl shadow-xl object-cover border-4 border-slate-100">
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="assets/images/service_solaire.jpg" alt="Solaire" class="rounded-2xl shadow-lg w-full h-36 object-cover border-2 border-slate-100">
-                        <img src="assets/images/service_tableaux.jpg" alt="Tableaux Électriques" class="rounded-2xl shadow-lg w-full h-36 object-cover border-2 border-slate-100">
-                    </div>
-                </div>
-
-                <!-- Floating stat badge -->
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-yellow text-brand-dark p-6 rounded-2xl shadow-2xl border-4 border-white text-center w-56">
-                    <p class="text-4xl font-extrabold font-montserrat tracking-tight">100%</p>
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-700">Conformité aux Normes</p>
-                </div>
-            </div>
-
-            <!-- Right Side: Presentation and Text -->
-            <div class="space-y-6">
-                <div class="inline-flex items-center gap-2 text-brand-blue font-bold tracking-widest text-xs uppercase">
-                    <span class="w-8 h-[2px] bg-brand-blue"></span> À propos de nous
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-montserrat font-black tracking-tight text-brand-dark">
-                    L'EXCELLENCE DE L'ÉTUDE À LA RÉALISATION
-                </h2>
-                <p class="text-slate-600 leading-relaxed text-base">
-                    Basé en République Démocratique du Congo à <strong>Lubumbashi</strong>, <strong>LIGHT ÉLEC ENGINEERING</strong> est un leader incontournable dans le domaine de l'électricité générale, de l'énergie solaire et de l'ingénierie technique.
-                </p>
-                <p class="text-slate-600 leading-relaxed text-sm">
-                    Nous combinons notre savoir-faire d’étude, de câblage, de maintenance préventive et de dépannage rapide pour garantir le bon fonctionnement permanent de vos installations électriques résidentielles, commerciales et industrielles.
-                </p>
-
-                <!-- Checkmarks list -->
-                <div class="space-y-3 pt-4 border-t border-slate-100">
-                    <div class="flex items-start gap-4">
-                        <div class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-[10px]"><i class="fa-solid fa-check"></i></div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-sm">Ingénierie de Précision</h4>
-                            <p class="text-xs text-slate-500">Étude et conception sur-mesure avant toute pose ou câblage technique.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-[10px]"><i class="fa-solid fa-check"></i></div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-sm">Intervention 24h/24 en urgence</h4>
-                            <p class="text-xs text-slate-500">Un service de dépannage électrique ultra-rapide à Lubumbashi et ses environs.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pt-6">
-                    <a href="#contact" class="inline-flex items-center gap-3 bg-brand-blue hover:bg-brand-dark text-white font-bold py-3.5 px-8 rounded-full shadow-md hover:shadow-lg transition">
-                        En savoir plus <i class="fa-solid fa-arrow-right text-brand-yellow"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section with interactive filter/tabs -->
-    <section id="services" class="py-24 bg-brand-light relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <div class="inline-flex items-center gap-2 text-brand-blue font-bold tracking-widest text-xs uppercase">
-                    <span class="w-8 h-[2px] bg-brand-blue"></span> Notre Expertise
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-montserrat font-black tracking-tight text-brand-dark">
-                    UN PANEIL COMPLET DE SOLUTIONS GLOBALES
-                </h2>
-                <p class="text-slate-500 text-sm sm:text-base">
-                    Nous disposons des compétences et de la certification pour intervenir sur tous vos chantiers. Explorez nos 14 services clés classés par catégorie.
-                </p>
-
-                <!-- Filter Buttons -->
-                <div class="flex flex-wrap justify-center gap-2 pt-6">
-                    <button onclick="filterServices('all')" id="btn-all" class="service-tab-btn px-5 py-2 rounded-full font-bold text-xs tracking-wider uppercase transition shadow-sm bg-brand-blue text-white">Tous</button>
-                    <button onclick="filterServices('solar')" id="btn-solar" class="service-tab-btn px-5 py-2 rounded-full font-bold text-xs tracking-wider uppercase transition shadow-sm bg-white text-brand-blue hover:bg-slate-100">Énergies & Solaire</button>
-                    <button onclick="filterServices('elec')" id="btn-elec" class="service-tab-btn px-5 py-2 rounded-full font-bold text-xs tracking-wider uppercase transition shadow-sm bg-white text-brand-blue hover:bg-slate-100">Électricité Générale</button>
-                    <button onclick="filterServices('tech')" id="btn-tech" class="service-tab-btn px-5 py-2 rounded-full font-bold text-xs tracking-wider uppercase transition shadow-sm bg-white text-brand-blue hover:bg-slate-100">Sécurité & Réseaux</button>
-                    <button onclick="filterServices('maint')" id="btn-maint" class="service-tab-btn px-5 py-2 rounded-full font-bold text-xs tracking-wider uppercase transition shadow-sm bg-white text-brand-blue hover:bg-slate-100">Maintenance & Support</button>
-                </div>
-            </div>
-
-            <!-- Services Grid containing the 14 flyer services -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-
-                <!-- Service 1 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="solar">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-solar-panel"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Énergie Solaire Photovoltaïque</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Étude de faisabilité, installation experte et maintenance périodique de panneaux solaires pour une autonomie énergétique totale.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-amber-600">Solaire</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="elec">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-house-chimney-crack"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Électricité Résidentielle</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Installation complète de vos réseaux résidentiels domestiques, mise aux normes des installations vétustes et dépannage.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-blue-600">Général</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="elec">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-industry"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Électricité Industrielle</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Conception rigoureuse et déploiement de machines, systèmes électriques haute tension et alimentation d'usines.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-indigo-600">Industrie</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="solar">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-battery-three-quarters"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Batteries et Stockage</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Mise en place de packs de stockage de haute capacité pour conserver l'énergie et la distribuer sans interruption 24h/7.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-emerald-600">Solaire</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="elec">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-cubes"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Tableaux et Armoires</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Conception de plans, câblage complet et installation sécurisée d'armoires et de tableaux divisionnaires électriques.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-purple-600">Général</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="elec">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-lightbulb"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Éclairage Public et LED</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Planification et implantation d'éclairages publics à économie d'énergie pour les municipalités, routes et parcs.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-yellow-600">Général</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 7 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="tech">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-video"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Caméras de Surveillance (CCTV)</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Mise en place de réseaux de caméras haute définition consultables à distance avec stockage sur NVR et cloud sécurisé.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-red-600">Sécurité</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 8 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="tech">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-id-card"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Contrôle d'Accès & Interphones</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Installation de verrous électriques biométriques, lecteurs de badge d'accès et combinés vidéo d'interphonie.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-teal-600">Sécurité</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 9 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="tech">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-network-wired"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Réseaux Informatiques</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Câblage structuré de baies informatiques, déploiement de fibre optique et configurations Wi-Fi professionnelles d'entreprises.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-cyan-600">Réseaux</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 10 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="tech">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-gears"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Automatisation Industrielle</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Intégration et programmation d'automates programmables industriels (API) pour piloter des lignes de production.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-orange-600">Industrie</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 11 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="maint">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-clipboard-check"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Maintenance Préventive</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Contrats d'entretien programmés pour inspecter les thermographies d'armoires électriques et prévenir tout défaut.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-violet-600">Support</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 12 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="maint">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Dépannage Électrique Rapide</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Équipe d'astreinte mobile prête à intervenir à tout instant à Lubumbashi en cas de coupure ou panne générale.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-rose-600">Urgence</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 13 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="elec">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-500 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-plug"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Groupes Électrogènes</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Installation de groupes de secours, mise en place d'inverseurs automatiques de sources pour pallier aux pannes de réseau.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-sky-600">Général</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 14 -->
-                <div class="service-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-category="maint">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-amber-600/10 text-amber-600 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
-                        <h3 class="font-montserrat font-bold text-slate-900 text-lg leading-snug">Vente de Matériels</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Fourniture et vente directe de câbles, disjoncteurs, transformateurs, luminaires certifiés de haute qualité technique.
-                        </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-slate-50 flex justify-between items-center text-xs font-semibold">
-                        <span class="text-amber-700">Fourniture</span>
-                        <a href="#contact" class="text-brand-blue hover:text-brand-yellow transition flex items-center gap-1">Devis <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Workflow Method Section -->
-    <section id="workflow" class="py-24 bg-brand-dark text-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
-                <span class="text-brand-yellow text-xs font-bold tracking-widest uppercase bg-brand-yellow/10 px-4 py-1.5 rounded-full border border-brand-yellow/20">Notre Processus de Travail</span>
-                <h2 class="text-3xl sm:text-4xl font-montserrat font-black tracking-tight">DE L'ÉTUDE À LA RÉALISATION</h2>
-                <p class="text-slate-400 text-sm">Nous prenons en charge l'intégralité de vos projets avec une méthodologie certifiée rigoureuse.</p>
-            </div>
-
-            <!-- Workflow steps line -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 relative z-10">
-                <!-- Step 1 -->
-                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center space-y-4">
-                    <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center font-bold text-lg mx-auto shadow-md">1</div>
-                    <h3 class="font-montserrat font-bold text-sm">Étude & Conseil</h3>
-                    <p class="text-[11px] text-slate-400">Analyse rigoureuse de vos locaux et rédaction du cahier des charges technique.</p>
-                </div>
-                <!-- Step 2 -->
-                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center space-y-4">
-                    <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center font-bold text-lg mx-auto shadow-md">2</div>
-                    <h3 class="font-montserrat font-bold text-sm">Installation</h3>
-                    <p class="text-[11px] text-slate-400">Pose professionnelle par nos électriciens qualifiés et certifiés.</p>
-                </div>
-                <!-- Step 3 -->
-                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center space-y-4">
-                    <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center font-bold text-lg mx-auto shadow-md">3</div>
-                    <h3 class="font-montserrat font-bold text-sm">Câblage & Tableaux</h3>
-                    <p class="text-[11px] text-slate-400">Câblage minutieux des armoires de distribution selon les normes.</p>
-                </div>
-                <!-- Step 4 -->
-                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center space-y-4">
-                    <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center font-bold text-lg mx-auto shadow-md">4</div>
-                    <h3 class="font-montserrat font-bold text-sm">Maintenance</h3>
-                    <p class="text-[11px] text-slate-400">Contrats d'entretien réguliers pour prévenir les pannes.</p>
-                </div>
-                <!-- Step 5 -->
-                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center space-y-4">
-                    <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center font-bold text-lg mx-auto shadow-md">5</div>
-                    <h3 class="font-montserrat font-bold text-sm">Mise en Service</h3>
-                    <p class="text-[11px] text-slate-400">Tests techniques finaux sous charge pour s'assurer de la viabilité.</p>
-                </div>
-                <!-- Step 6 -->
-                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center space-y-4">
-                    <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center font-bold text-lg mx-auto shadow-md">6</div>
-                    <h3 class="font-montserrat font-bold text-sm">Suivi & Support</h3>
-                    <p class="text-[11px] text-slate-400">Suivi rigoureux post-installation et assistance client réactive.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quote Calculator Section -->
-    <section id="estimate" class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-slate-50 p-8 sm:p-12 rounded-3xl border border-slate-100 shadow-xl space-y-8">
-                <div class="text-center space-y-2">
-                    <span class="text-brand-blue text-xs font-bold tracking-widest uppercase">Outil de Simulation</span>
-                    <h2 class="text-2xl sm:text-3xl font-montserrat font-black text-brand-dark">ESTIMEZ VOTRE PROJET EN LIGNE</h2>
-                    <p class="text-xs text-slate-500">Sélectionnez vos critères pour obtenir une estimation budgétaire indicative de vos travaux électriques ou solaires.</p>
-                </div>
-
-                <div class="space-y-6">
-                    <!-- Project Type -->
-                    <div>
-                        <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Type de projet</label>
-                        <select id="calc-project-type" onchange="calculateEstimate()" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none">
-                            <option value="solaire">Installation Solaire Photovoltaïque</option>
-                            <option value="residentiel">Électricité Résidentielle (Logement)</option>
-                            <option value="industriel">Électricité Industrielle & Tertiaire</option>
-                            <option value="cctv">Système de Sécurité & Caméras (CCTV)</option>
-                            <option value="reseaux">Câblage Réseaux Informatiques</option>
-                        </select>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- Scale / Size -->
-                        <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Dimensionnement (Ex: Surface en m² ou Puissance en kW)</label>
-                            <input type="number" id="calc-scale" value="50" oninput="calculateEstimate()" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none">
-                        </div>
-                        <!-- Emergency option -->
-                        <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Niveau d'urgence</label>
-                            <select id="calc-urgency" onchange="calculateEstimate()" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none">
-                                <option value="normal">Normal (Planifié sous 14 jours)</option>
-                                <option value="high">Urgent (Planifié sous 48 heures) (+15%)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Live Estimate Result Box -->
-                    <div class="bg-brand-blue text-white p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 shadow-md">
-                        <div>
-                            <p class="text-xs font-bold text-brand-yellow uppercase tracking-wider">Estimation indicative</p>
-                            <p class="text-xs text-slate-300">Sous réserve d'étude technique finale</p>
-                        </div>
-                        <div class="text-center sm:text-right">
-                            <span id="calc-result" class="text-3xl sm:text-4xl font-montserrat font-black text-brand-yellow">$1,500</span>
-                            <span class="text-xs text-slate-200 block sm:inline sm:ml-2">USD</span>
-                        </div>
-                    </div>
-
-                    <p class="text-[10px] text-slate-400 text-center">
-                        Note: Ce simulateur fournit un chiffrage de premier niveau basé sur les coûts moyens de matériels certifiés et d'installation à Lubumbashi. Une étude de conseil reste obligatoire pour valider le tarif exact.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-24 bg-brand-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <div class="inline-flex items-center gap-2 text-brand-blue font-bold tracking-widest text-xs uppercase">
-                    <span class="w-8 h-[2px] bg-brand-blue"></span> Témoignages clients
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-montserrat font-black tracking-tight text-brand-dark">
-                    ILS NOUS FONT CONFIANCE
-                </h2>
-                <p class="text-slate-500 text-sm">Retours d'expérience de nos partenaires et clients résidentiels et industriels.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="flex text-brand-yellow gap-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-600 text-xs italic leading-relaxed">
-                            "LIGHT ÉLEC a réalisé toute l'installation solaire photovoltaïque de notre domaine résidentiel. Le système de batteries de stockage fonctionne de manière impeccable, sans aucune micro-coupure depuis 6 mois !"
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3 pt-6 mt-6 border-t border-slate-50">
-                        <div class="w-10 h-10 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center font-bold text-sm">
-                            KM
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-xs text-slate-900">K Kabulo M.</h4>
-                            <p class="text-[10px] text-slate-500">Client Résidentiel, Lubumbashi</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="flex text-brand-yellow gap-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-600 text-xs italic leading-relaxed">
-                            "Nous avons confié à l'équipe la rénovation complète de nos armoires et tableaux électriques industriels. Un travail de câblage extrêmement soigné, propre et rapide. Des ingénieurs professionnels et compétents."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3 pt-6 mt-6 border-t border-slate-50">
-                        <div class="w-10 h-10 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center font-bold text-sm">
-                            JS
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-xs text-slate-900">Jean-Serge K.</h4>
-                            <p class="text-[10px] text-slate-500">Directeur Technique Usine, Katanga</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="flex text-brand-yellow gap-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-600 text-xs italic leading-relaxed">
-                            "Leur service de dépannage rapide est exceptionnel. Un court-circuit général survenu en pleine nuit a été résolu en moins d'une heure par leur technicien d'astreinte. Un vrai partenaire de confiance !"
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3 pt-6 mt-6 border-t border-slate-50">
-                        <div class="w-10 h-10 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center font-bold text-sm">
-                            MT
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-xs text-slate-900">Marie-Thérèse B.</h4>
-                            <p class="text-[10px] text-slate-500">Propriétaire de Commerce, Ruashi</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact & Form Section -->
-    <section id="contact" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-16 items-start">
-
-            <!-- Contact info card -->
-            <div class="lg:col-span-5 bg-brand-dark text-white p-8 sm:p-12 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/10 rounded-full blur-3xl"></div>
-
-                <div class="space-y-8 relative z-10">
-                    <div>
-                        <span class="text-brand-yellow text-xs font-bold uppercase tracking-wider block mb-2">COORDONNÉES</span>
-                        <h2 class="text-2xl sm:text-3xl font-montserrat font-black tracking-tight">CONTACTEZ-NOUS DIRECTEMENT</h2>
-                        <p class="text-slate-300 text-xs mt-2 leading-relaxed">Nos conseillers techniques et ingénieurs d'astreinte répondent à toutes vos demandes.</p>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center text-brand-yellow text-lg flex-shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-white">Notre Siège Social</h4>
-                                <p class="text-xs text-slate-300 mt-1">Lubumbashi sur Tshiamalale,</p>
-                                <p class="text-xs text-slate-400">République Démocratique du Congo (RDC)</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center text-brand-yellow text-lg flex-shrink-0">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-white">Téléphone & Astreinte 24/7</h4>
-                                <p class="text-xs text-slate-300 mt-1 hover:text-brand-yellow transition">
-                                    <a href="tel:+2436589598407">+243 658 959 8407</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center text-brand-yellow text-lg flex-shrink-0">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-white">Adresse E-mail</h4>
-                                <p class="text-xs text-slate-300 mt-1 hover:text-brand-yellow transition">
-                                    <a href="mailto:lightelecengineering@gmail.com">lightelecengineering@gmail.com</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-8 border-t border-white/10 text-center">
-                        <p class="text-brand-yellow font-bold text-xs uppercase tracking-wider mb-3">Rejoignez-nous sur les réseaux</p>
-                        <div class="flex justify-center gap-4 text-xl">
-                            <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="lg:col-span-7 space-y-8">
-                <div>
-                    <span class="text-brand-blue text-xs font-bold tracking-widest uppercase block mb-2">FORMULAIRE DE CONTACT</span>
-                    <h2 class="text-3xl font-montserrat font-black text-brand-dark">ENVOYEZ UN MESSAGE</h2>
-                    <p class="text-slate-500 text-xs">Remplissez le formulaire ci-dessous et obtenez un retour technique détaillé sous 24 heures.</p>
-                </div>
-
-                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Nom complet</label>
-                            <input type="text" required placeholder="Ex: Jean Mukendi" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Téléphone (avec indicatif)</label>
-                            <input type="tel" required placeholder="Ex: +243 658 959 8407" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">E-mail</label>
-                            <input type="email" required placeholder="Ex: jean.muk@gmail.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Sujet de votre demande</label>
-                            <input type="text" placeholder="Ex: Devis pour pose de panneaux solaires" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Message détaillé</label>
-                        <textarea rows="5" required placeholder="Décrivez votre projet d'électricité ou solaire ainsi que l'urgence de la situation..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full bg-brand-blue hover:bg-brand-dark text-white font-extrabold py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
-                        Envoyer ma demande <i class="fa-solid fa-paper-plane text-brand-yellow"></i>
-                    </button>
-                </form>
-
-                <!-- Success notification inside HTML -->
-                <div id="form-success-alert" class="hidden p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-700 text-xs font-semibold flex items-center gap-3">
-                    <i class="fa-solid fa-circle-check text-lg"></i>
-                    Votre message a été envoyé avec succès ! Notre service d'études prendra contact avec vous dans de brefs délais.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Area -->
-    <footer class="bg-brand-dark text-slate-400 text-xs border-t border-white/5 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-            <!-- Brand Column -->
-            <div class="space-y-4">
-                <a href="#" class="flex items-center gap-3">
-                    <div class="bg-brand-blue p-2 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-bolt-lightning text-brand-yellow text-xl"></i>
-                    </div>
-                    <div>
-                        <span class="font-montserrat font-black text-white text-lg tracking-tight block">LIGHT ÉLEC</span>
-                        <span class="text-[10px] font-bold tracking-widest text-slate-500 uppercase block -mt-1">ENGINEERING</span>
-                    </div>
-                </a>
-                <p class="leading-relaxed">
-                    Votre partenaire de confiance pour des solutions électriques globales, durables et innovantes en RDC.
-                </p>
-                <p class="text-white font-bold uppercase tracking-widest text-[9px] pt-2 block">
-                    © 2026 LIGHT ÉLEC ENGINEERING.
-                </p>
-            </div>
-
-            <!-- Quick Links -->
-            <div>
-                <h4 class="text-white font-montserrat font-bold text-sm mb-4 tracking-wider uppercase">Menu Rapide</h4>
-                <ul class="space-y-2 font-medium">
-                    <li><a href="#" class="hover:text-brand-yellow transition">Accueil</a></li>
-                    <li><a href="#about" class="hover:text-brand-yellow transition">À Propos</a></li>
-                    <li><a href="#services" class="hover:text-brand-yellow transition">Nos Services</a></li>
-                    <li><a href="#workflow" class="hover:text-brand-yellow transition">Méthodologie</a></li>
-                    <li><a href="#estimate" class="hover:text-brand-yellow transition">Calculateur de Devis</a></li>
-                </ul>
-            </div>
-
-            <!-- Services Quick Reference -->
-            <div>
-                <h4 class="text-white font-montserrat font-bold text-sm mb-4 tracking-wider uppercase">Expertises Clés</h4>
-                <ul class="space-y-2">
-                    <li><a href="#services" class="hover:text-brand-yellow transition">Énergie Solaire Photovoltaïque</a></li>
-                    <li><a href="#services" class="hover:text-brand-yellow transition">Électricité Industrielle</a></li>
-                    <li><a href="#services" class="hover:text-brand-yellow transition">Batteries et Stockage</a></li>
-                    <li><a href="#services" class="hover:text-brand-yellow transition">Réseaux & Sécurité CCTV</a></li>
-                    <li><a href="#services" class="hover:text-brand-yellow transition">Contrats de Maintenance</a></li>
-                </ul>
-            </div>
-
-            <!-- Contact & Social Details -->
-            <div class="space-y-4">
-                <h4 class="text-white font-montserrat font-bold text-sm tracking-wider uppercase">Nous contacter</h4>
-                <ul class="space-y-3">
-                    <li class="flex items-start gap-2">
-                        <i class="fa-solid fa-location-dot text-brand-yellow mt-0.5"></i>
-                        <span>Lubumbashi sur Tshiamalale, République Démocratique du Congo (RDC)</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fa-solid fa-phone text-brand-yellow"></i>
-                        <a href="tel:+2436589598407" class="hover:text-white transition">+243 658 959 8407</a>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fa-solid fa-envelope text-brand-yellow"></i>
-                        <a href="mailto:lightelecengineering@gmail.com" class="hover:text-white transition">lightelecengineering@gmail.com</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/5 pt-8 text-center text-[10px] text-slate-500 flex flex-col sm:flex-row justify-between gap-4">
-            <p>Conçu conformément aux directives de la charte de qualité LIGHT ÉLEC ENGINEERING. Tous droits réservés.</p>
-            <div class="flex justify-center gap-4">
-                <a href="#" class="hover:text-slate-400">Mentions légales</a>
-                <span>•</span>
-                <a href="#" class="hover:text-slate-400">Politique de confidentialité</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Interactive Logic Script -->
-    <script>
-        // Toggle Mobile Menu
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on anchor click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Interactive Service Filter
-        function filterServices(category) {
-            // Update Tab Button States
-            const buttons = document.querySelectorAll('.service-tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-brand-blue', 'text-white');
-                btn.classList.add('bg-white', 'text-brand-blue', 'hover:bg-slate-100');
-            });
-
-            const activeBtn = document.getElementById(`btn-${category}`);
-            if (activeBtn) {
-                activeBtn.classList.remove('bg-white', 'text-brand-blue', 'hover:bg-slate-100');
-                activeBtn.classList.add('bg-brand-blue', 'text-white');
-            }
-
-            // Filter service cards
-            const cards = document.querySelectorAll('.service-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        }
-
-        // Live Estimate Calculator
-        function calculateEstimate() {
-            const projectType = document.getElementById('calc-project-type').value;
-            const scale = parseFloat(document.getElementById('calc-scale').value) || 0;
-            const urgency = document.getElementById('calc-urgency').value;
-
-            let baseRate = 0;
-            if (projectType === 'solaire') baseRate = 300; // $300 per kW/scale unit
-            else if (projectType === 'residentiel') baseRate = 15; // $15 per m²
-            else if (projectType === 'industriel') baseRate = 80; // $80 per scale unit
-            else if (projectType === 'cctv') baseRate = 120; // $120 per camera/unit
-            else if (projectType === 'reseaux') baseRate = 45; // $45 per port/unit
-
-            let result = scale * baseRate;
-
-            // Apply urgency multiplier (+15%)
-            if (urgency === 'high') {
-                result *= 1.15;
-            }
-
-            // Formatting output
-            const formatter = new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                maximumFractionDigits: 0
-            });
-
-            document.getElementById('calc-result').innerText = formatter.format(result);
-        }
-
-        // Handle Contact Form Submit with instant beautiful notification
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const successAlert = document.getElementById('form-success-alert');
-            successAlert.classList.remove('hidden');
-            document.getElementById('contact-form').reset();
-
-            // Scroll to the alert slowly
-            successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            // Hide after 8 seconds
-            setTimeout(() => {
-                successAlert.classList.add('hidden');
-            }, 8000);
-        }
-
-        // Run calculation on initial load
-        calculateEstimate();
-    </script>
-</body>
-</html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LIGHT ELEC ENGINEERING — Gestion</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--n:#0b1f3a;--n2:#16376a;--a:#f5b301;--bg:#eef1f6;--t:#1b2433;--m:#66728a}
+*{box-sizing:border-box}body{margin:0;font:15px 'Barlow',system-ui,sans-serif;background:var(--bg);color:var(--t)}
+button,input,select,textarea{font:inherit}h1,h2,h3,.brand{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:.02em}
+h2{font-size:30px;margin:0 0 10px;color:var(--n)}h3{font-size:21px;margin:16px 0 6px;color:var(--n)}
+.lg{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,var(--n),var(--n2))}
+.card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 8px #0b1f3a1a}.lg .card{width:min(400px,92vw)}
+.shell{display:flex;min-height:100vh}nav{width:236px;background:var(--n);color:#cfd8e8;padding:16px;display:flex;flex-direction:column;gap:4px}
+nav .brand{color:var(--a);font-size:24px;line-height:1.1;margin-bottom:14px}
+nav a{padding:9px 12px;border-radius:8px;cursor:pointer}nav a:hover{background:var(--n2)}nav a.on{background:var(--a);color:var(--n);font-weight:600}
+main{flex:1;padding:24px;min-width:0}
+label{display:block;margin:9px 0;font-size:13px;color:var(--m)}
+input,select,textarea{display:block;width:100%;padding:8px;border:1px solid #cfd6e3;border-radius:6px;margin-top:3px;background:#fff;color:var(--t)}
+.inl input{display:inline-block;width:auto}
+.btn{background:var(--a);color:var(--n);border:0;padding:9px 15px;border-radius:8px;font-weight:600;cursor:pointer;margin:6px 6px 6px 0}
+.b2{background:#fff;border:1px solid #cfd6e3;padding:9px 14px;border-radius:8px;cursor:pointer;display:inline-block;margin:6px 6px 6px 0;color:var(--t)}
+.lk{color:#1a56c4;cursor:pointer;margin-right:10px}.mu{color:var(--m)}.ok{color:#1e8449;font-weight:600}
+.sc{overflow-x:auto;background:#fff;border-radius:10px;margin:8px 0;box-shadow:0 1px 8px #0b1f3a1a}
+table{width:100%;border-collapse:collapse}th,td{padding:9px 10px;border-bottom:1px solid #e3e8f0;text-align:left;white-space:nowrap}th{font-size:13px;color:var(--m);font-weight:600}
+.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:10px 0}.k b{display:block;font:700 28px 'Barlow Condensed',sans-serif;color:var(--n)}
+.ov{position:fixed;inset:0;background:#0b1f3a99;display:grid;place-items:center;z-index:9;overflow:auto;padding:12px}.ov .card{width:min(440px,94vw)}.row{display:flex;flex-wrap:wrap}
+#sy{position:fixed;right:10px;bottom:10px;z-index:8;background:#0b1f3a;color:#fff;font-size:11px;padding:4px 9px;border-radius:20px;opacity:.85;pointer-events:none}
+#live{position:fixed;left:10px;bottom:10px;z-index:8;background:#1e8449;color:#fff;font-size:11px;padding:4px 9px;border-radius:20px;opacity:.9;pointer-events:none;max-width:70vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#net{position:fixed;left:10px;top:10px;z-index:10;font-size:11px;padding:4px 9px;border-radius:20px;color:#fff;display:none}
+#net.on{display:block;background:#c0392b}#net.off{display:block;background:#f39c12}
+@media(max-width:780px){.shell{flex-direction:column}nav{width:auto;flex-direction:row;flex-wrap:wrap}nav .brand{width:100%;margin:0}}
+</style></head><body><div id="app"></div>
+<div id="net"></div>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script>
+/* ================== CONFIGURATION GLOBALE ================== */
+const $=s=>document.querySelector(s),
+ LS='le_db', CF='le_cfg', TK='le_tok', CK='le_code',
+ MAIL_ADMIN='yannickmutala04@gmail.com',
+ APP_VERSION='3.0.0',
+ CODE_URL_DEFAULT='https://raw.githubusercontent.com/lightelec/light-elec/main/index.html';
+const E=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),
+ uid=()=>Math.random().toString(36).slice(2,9);
+const R={adm:'Bureau administratif',fin:'Gestion finance',rh:'Gestion ressources humaines',dg:'Direction générale'};
+const M=[['dash','📊 Tableau de bord','adm fin rh dg'],['emp','👷 Employés et salaires','adm rh'],['hrs','⏱ Heures de travail','adm rh'],['fin','💰 Finance','adm fin'],['pay','🧾 Paie et bulletins','adm fin'],['gest','📁 Gestion (devis et factures)','adm fin'],['msg','✉ Messages','adm fin rh dg'],['proj','🏗 Projets','adm'],['dg','🏛 Direction générale','adm dg'],['adm','🗂 Administration','adm']];
+let db,cfg=JSON.parse(localStorage.getItem(CF)||'{}'),me=null,tab='',tok=null,pt,mo=new Date().toISOString().slice(0,7);
+const today=()=>new Date().toISOString().slice(0,10),money=n=>mf(n,MC);
+
+/* ================== HACHAGE ROBUSTE (fallback si crypto absent) ================== */
+const H=async s=>{
+ try{return[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,'0')).join('')}
+ catch(e){ /* fallback simple pour vieux navigateurs */
+   let h=0;for(let i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0}
+   return 'fb'+Math.abs(h).toString(16)}
+};
+
+const st=t=>{const e=$('#st');if(e)e.textContent=t;const y=$('#sy');if(y&&t)y.textContent=t},
+ nm=id=>(db.emp.find(e=>e.id==id)||{}).nom||'—';
+
+/* ================== NOTIFICATION ADMIN ================== */
+async function notifyAdmin(subject,body){
+ try{
+  const payload={to:MAIL_ADMIN,subject,body,from:(me?me.login:'inconnu'),at:new Date().toLocaleString('fr-FR'),v:APP_VERSION};
+  db.alerts=db.alerts||[];
+  db.alerts.unshift({id:uid(),...payload,read:[]});
+  db.alerts=db.alerts.slice(0,200);
+  if(cfg.mailUrl){try{await fetch(cfg.mailUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})}catch(e){}}
+  if(window.Notification&&Notification.permission=='granted'){try{new Notification('LIGHT ELEC — '+subject,{body:body.slice(0,120)})}catch(e){}}
+ }catch(e){}
+}
+
+/* ================== PERSISTANCE HORS-LIGNE ================== */
+/* Sauvegarde locale + IndexedDB (secours si localStorage plein ou corrompu) */
+const IDB_NAME='light_elec',IDB_STORE='kv';
+function idbOpen(){return new Promise((res,rej)=>{try{const r=indexedDB.open(IDB_NAME,1);r.onupgradeneeded=e=>{if(!e.target.result.objectStoreNames.contains(IDB_STORE))e.target.result.createObjectStore(IDB_STORE)};r.onsuccess=e=>res(e.target.result);r.onerror=rej}catch(e){rej(e)}})}
+async function idbSet(k,v){try{const d=await idbOpen();return new Promise((res,rej)=>{const tx=d.transaction(IDB_STORE,'readwrite');tx.objectStore(IDB_STORE).put(v,k);tx.oncomplete=res;tx.onerror=rej})}catch(e){}}
+async function idbGet(k){try{const d=await idbOpen();return new Promise((res,rej)=>{const tx=d.transaction(IDB_STORE,'readonly'),rq=tx.objectStore(IDB_STORE).get(k);rq.onsuccess=()=>res(rq.result);rq.onerror=rej})}catch(e){}return null}
+
+/* File d'attente des écritures non envoyées (offline queue) */
+const OUTBOX='le_outbox';
+const getOutbox=()=>{try{return JSON.parse(localStorage.getItem(OUTBOX)||'[]')}catch(e){return[]}};
+const addOutbox=(entry)=>{const q=getOutbox();q.push(entry);localStorage.setItem(OUTBOX,JSON.stringify(q.slice(-500)))};
+const clrOutbox=()=>localStorage.removeItem(OUTBOX);
+
+/* Sauvegarde locale robuste : localStorage PUIS IndexedDB */
+async function saveLocal(){
+ try{localStorage.setItem(LS,JSON.stringify(db))}catch(e){/* quota dépassé */}
+ try{await idbSet('db',db)}catch(e){}
+}
+/* Chargement local : localStorage PUIS IndexedDB */
+async function loadLocal(){
+ let d=localStorage.getItem(LS);
+ if(!d){try{const v=await idbGet('db');if(v)d=JSON.stringify(v)}catch(e){}}
+ return d?JSON.parse(d):null;
+}
+
+/* ================== INITIALISATION ================== */
+async function init(){
+ let d=await loadLocal();
+ if(!d){d={u:0,set:{name:'LIGHT ELEC ENGINEERING',cur:'USD',soc:5,tax:3,hrs:173.33,ot:1.5},users:[],emp:[],hrs:[],tx:[],pay:[],notes:[],log:[],alerts:[],devis:[],fact:[],cli:[],msg:[],proj:[]}}
+ db=d;fix();
+ if(!db.users.length)for(const[n,r]of[['admin','adm']])db.users.push({id:uid(),login:n,role:r,pw:await H('1234')});
+ if(!db.m1){for(const u of db.users)if(u.pw==await H(u.login+'123'))u.pw=await H('123');db.m1=1}
+ if(!db.m2){for(const u of db.users)if(u.pw==await H('123'))u.pw=await H('1234');db.m2=1}
+ await saveLocal();
+}
+const fix=()=>{['devis','fact','cli','msg','proj','alerts','log','users','emp','hrs','tx','pay','notes'].forEach(k=>db[k]=db[k]||[]);db.set.rate=db.set.rate||2250};
+
+/* save() : met à jour u, écrit localement, met en file et pousse sur Drive */
+const save=async()=>{
+ db.u=Date.now();
+ await saveLocal();
+ if(tok&&cfg.fid){push(1)}
+ else {addOutbox({u:db.u,at:new Date().toISOString()})}
+};
+const log=(a,extra)=>{
+ const entry={t:new Date().toLocaleString('fr-FR'),u:me?me.login:'system',a,...(extra||{})};
+ db.log.unshift(entry);db.log=db.log.slice(0,200);
+ if(/connexion|suppression|paie|paramètres|utilisateur|paiement/i.test(a)){
+  db.alerts=db.alerts||[];
+  db.alerts.unshift({id:uid(),from:entry.u,subject:a,body:(extra&&extra.detail)||a,at:entry.t,read:[]});
+  db.alerts=db.alerts.slice(0,200);
+ }
+};
+
+const T=(h,r)=>`<div class=sc><table><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr>${r.map(x=>`<tr>${x.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')||`<tr><td colspan=${h.length} class=mu>Aucune donnée pour le moment</td></tr>`}</table></div>`;
+const K=(a,b)=>`<div class=card><span class=mu>${a}</span><b>${b}</b></div>`,MO=()=>`<label class=inl>Mois <input type=month value="${mo}" onchange="mo=this.value;render()"></label>`;
+
+function F(title,fs,ok){const o=document.createElement('div');o.id='modal';o.className='ov';
+o.innerHTML=`<form class=card><h3>${title}</h3>${fs.map(f=>`<label>${f[1]}${f[2]=='select'?`<select name=${f[0]}>${f[4].map(v=>`<option value="${E(v[0])}" ${v[0]==f[3]?'selected':''}>${E(v[1])}</option>`).join('')}</select>`:f[2]=='area'?`<textarea name=${f[0]} rows=4>${E(f[3])}</textarea>`:`<input name=${f[0]} type=${f[2]} value="${E(f[3])}" ${f[2]=='number'?'step=any':''}>`}</label>`).join('')}<div class=row><button class=btn>Enregistrer</button><button type=button class=b2 onclick="this.closest('#modal').remove()">Annuler</button></div></form>`;
+o.querySelector('form').onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.target));Promise.resolve(ok(d)).then(async()=>{o.remove();await save();render()})};document.body.appendChild(o)}
+
+function del(k,id){if(k=='users'&&id==me.id)return alert('Vous ne pouvez pas supprimer votre propre compte.');if(confirm('Supprimer cet élément ?')){db[k]=db[k].filter(x=>x.id!=id);log('Suppression ('+k+')');save();render()}}
+function eF(id){const e=db.emp.find(x=>x.id==id)||{};F(id?"Modifier l'employé":"Engagement d'un employé",[['nom','Nom complet','text',e.nom||''],['poste','Poste','text',e.poste||''],['dept','Département','text',e.dept||''],['date',"Date d'engagement",'date',e.date||today()],['base','Salaire de base mensuel (CDF)','number',e.base||0],['tr','Indemnité de transport (CDF)','number',e.tr||0],['lg','Indemnité de logement (CDF)','number',e.lg||0],['st','Statut','select',e.st||'Actif',[['Actif','Actif'],['Suspendu','Suspendu'],['Sorti','Sorti']]]],d=>{if(id)Object.assign(e,d);else db.emp.push({id:uid(),mat:'EMP-'+String(db.emp.length+1).padStart(3,'0'),...d});log((id?'Modification ':'Engagement ')+d.nom)})}
+function nF(){F('Note de direction',[['t','Titre','text',''],['x','Décision ou note','area','']],d=>{db.notes.unshift({id:uid(),...d,d:today(),u:me.login})})}
+async function rp(id){if(me.role!='adm')return;if(confirm('Réinitialiser ce mot de passe à 1234 ?')){const u=db.users.find(x=>x.id==id);u.pw=await H('1234');log('Mot de passe réinitialisé : '+u.login);save();render()}}
+function uF(id){if(me.role!='adm')return;const u=db.users.find(x=>x.id==id)||{};F('Utilisateur',[['login','Identifiant','text',u.login||''],['role','Bureau','select',u.role||'rh',Object.entries(R)],['pw','Mot de passe'+(id?' (vide = inchangé)':' (vide = 1234)'),'password','']],async d=>{const pw=d.pw?await H(d.pw):(u.pw||await H('1234'));if(id)Object.assign(u,{login:d.login,role:d.role,pw});else db.users.push({id:uid(),login:d.login,role:d.role,pw});log('Utilisateur '+d.login)})}
+function vP(){const rows=calc(mo);if(!rows.length)return alert('Aucun employé actif pour ce mois.');if(!confirm('Valider la paie de '+mo+' ? Une dépense « Salaires » sera ajoutée en finance.'))return;db.pay.push({m:mo,d:new Date().toLocaleDateString('fr-FR'),rows});db.tx.push({id:uid(),d:today(),ty:'D',cat:'Salaires',lib:'Paie '+mo,m:rows.reduce((a,x)=>a+x.net,0)});log('Paie validée '+mo);save();render()}
+
+function slip(i){const v=db.pay.find(p=>p.m==mo),x=(v?v.rows:calc(mo))[i],w=open('','_blank');if(!w)return alert('Autorisez les fenêtres pop-up pour imprimer.');const L=(a,b,c)=>`<tr><td>${a}</td><td class=r>${b}</td><td class=r>${c}</td></tr>`;
+w.document.write(`<title>Bulletin ${E(x.nom)} ${mo}</title><style>body{font:14px Arial;margin:30px;color:#111}h1{color:#0b1f3a;margin:0}table{width:100%;border-collapse:collapse;margin:14px 0}td,th{border:1px solid #bbb;padding:6px;text-align:left}.r{text-align:right}.h{border-bottom:3px solid #f5b301;padding-bottom:8px}</style><div class=h><h1>⚡ ${E(db.set.name)}</h1>BULLETIN DE PAIE — ${mo}</div><p><b>${E(x.nom)}</b> (${E(x.mat)}) — ${E(x.poste)}</p><table><tr><th>Rubrique</th><th class=r>Gains</th><th class=r>Retenues</th></tr>${L('Salaire de base',money(x.base),'')}${L('Indemnités (transport, logement)',money(x.ind),'')}${L('Heures supplémentaires',money(x.hs),'')}${L('Retards ('+(x.lt||0)+')','',money(x.ab))}${L('Cotisation sociale ('+db.set.soc+'%)','',money(x.soc))}${L('Impôt ('+db.set.tax+'%)','',money(x.imp))}</table><p>Salaire brut : ${money(x.br)}</p><h2 style="text-align:right">Net à payer : ${money(x.net)}</h2><p style="margin-top:50px">Signature employé : ______________</p><div style="text-align:right;margin-top:30px"><b>${SIG}</b><br>${SIGT}</div><script>print()<\/script>`);w.document.close()}
+const SIG='Leatitia MBOMBO',SIGT='Directrice de finance',TN={devis:'Devis',fact:'Facture'};
+let G=null,cur=null,q='';
+const tot=d=>{const s=d.l.reduce((a,x)=>a+ +x.q* +x.p,0),mo=s*.3,im=s*.05;return{s,mo,im,g:s+mo+im}};
+const LL=()=>T(['N°','Titre','Client','Date','Total général','Payé','Statut',''],db[G].filter(d=>(d.n+' '+d.ti+' '+d.cl).toLowerCase().includes(q.toLowerCase())&&(sf=='*'||st3(d)==sf)).sort((a,b)=>a.n<b.n?1:-1).map(d=>[E(d.n),E(d.ti),E(d.cl),d.d,mf(tot(d).g,d.cur||'USD'),mf(paid(d),d.cur||'USD'),'<b>'+st3(d)+'</b>',`<a class=lk onclick="od('${d.id}')">Ouvrir</a><a class=lk onclick="del('${G}','${d.id}')">Supprimer</a>`]));
+function W(S,done,i=0,v=[]){$('#modal')?.remove();const s=S[i],o=document.createElement('div'),df=typeof s[1]=='function'?s[1](v)||'':'';o.id='modal';o.className='ov';
+o.innerHTML=`<form class=card><h3>${s[0]}</h3><p class=mu>Question ${i+1} sur ${S.length}${s[3]?' (facultative)':''}</p><input name=v value="${E(df)}" ${s[2]?'list=cl':''}><datalist id=cl>${db.cli.map(c=>`<option value="${E(c.n)}">`).join('')}</datalist><div class=row><button class=btn>${i+1<S.length?'Suivant':'Créer le document'}</button><button type=button class=b2 onclick="this.closest('#modal').remove()">Annuler</button></div></form>`;
+o.querySelector('form').onsubmit=e=>{e.preventDefault();const x=e.target.v.value.trim();if(!x&&!s[3])return;v[i]=x;o.remove();i+1<S.length?W(S,done,i+1,v):done(v)};document.body.appendChild(o);o.querySelector('input').focus()}
+function nd(){const f=G=='fact',cl=v=>db.cli.find(c=>c.n==v[1])||{};W([[f?'Titre de la facture':'Titre du devis'],['Nom du client',0,1],["Adresse d'exécution",v=>cl(v).a],['Contacts du client (si disponibles)',v=>cl(v).c,0,1]],v=>{cur={id:uid(),t:G,n:(f?'FAC-':'DEV-')+new Date().getFullYear()+'-'+String(Math.max(0,...db[G].map(d=>+d.n.split('-').pop()))+1).padStart(3,'0'),ti:v[0],cl:v[1],ad:v[2],ct:v[3],d:today(),l:[{a:'',q:1,p:0}],cur:'USD',rate:db.set.rate};render()})}
+const od=id=>{cur=JSON.parse(JSON.stringify(db[G].find(d=>d.id==id)));render()};
+const TT=()=>{const t=tot(cur);return`<table style="width:auto;margin-left:auto"><tr><td>Total articles</td><td>${money(t.s)}</td></tr><tr><td>Main d'œuvre</td><td>${money(t.mo)}</td></tr><tr><td>Imprévus</td><td>${money(t.im)}</td></tr><tr><td><b>Total général</b></td><td><b>${money(t.g)}</b></td></tr><tr><td>${eqv(cur)[0]}</td><td>${eqv(cur)[1]}</td></tr></table>`};
+const EL=()=>`<div class=sc><table><tr><th>N°</th><th>Article</th><th>Nombre</th><th>Prix unitaire</th><th>Total</th><th></th></tr>${cur.l.map((x,i)=>`<tr><td>${i+1}</td><td><input value="${E(x.a)}" oninput="cur.l[${i}].a=this.value"></td><td><input type=number step=any value="${x.q}" style="width:80px" oninput="cur.l[${i}].q=+this.value;rt()"></td><td><input type=number step=any value="${x.p}" style="width:120px" oninput="cur.l[${i}].p=+this.value;rt()"></td><td class=lt>${money(x.q*x.p)}</td><td><a class=lk onclick="cur.l.splice(${i},1);ul()">✕</a></td></tr>`).join('')}</table></div>`;
+const rt=()=>{document.querySelectorAll('.lt').forEach((e,i)=>e.textContent=money(cur.l[i].q*cur.l[i].p));$('#tt').innerHTML=TT();$('#pz').innerHTML=PZ()},ul=()=>{$('#ln').innerHTML=EL();rt()};
+const ED=()=>{MC=cur.cur||'USD';const f=cur.t=='fact',w=f?'facture':'devis';return`<div class=row><button class=btn onclick="sv()">Enregistrer</button><button class=b2 onclick="nv(-1)">◀ ${f?'Facture précédente':'Devis précédent'}</button><button class=b2 onclick="nv(1)">${f?'Facture suivante':'Devis suivant'} ▶</button><button class=b2 onclick="cur=null;q='';render();$('#qs')&&$('#qs').focus()">Recherche ${w}</button><button class=b2 onclick="pm()">Encaisser un paiement</button><button class=b2 onclick="sd()">Sauvegarder</button><button class=b2 onclick="pr()">Imprimer</button><button class=b2 onclick="cur=null;render()">Fermer</button></div><div class=card><h2>${f?'Facture':'Devis'} N° ${E(cur.n)}</h2><span class=mu>Date : ${cur.d}</span><label>Titre<input value="${E(cur.ti)}" oninput="cur.ti=this.value"></label><label>Nom du client<input value="${E(cur.cl)}" oninput="cur.cl=this.value"></label><label>Adresse d'exécution<input value="${E(cur.ad)}" oninput="cur.ad=this.value"></label><label>Contacts<input value="${E(cur.ct)}" oninput="cur.ct=this.value"></label><div class=row><label style="margin-right:14px">Devise<select onchange="cur.cur=this.value;MC=cur.cur;ul()"><option ${cur.cur!='CDF'?'selected':''}>USD</option><option ${cur.cur=='CDF'?'selected':''}>CDF</option></select></label><label>Taux d'échange (1 USD = ? CDF)<input type=number value="${cur.rate||db.set.rate}" ${me.role=='adm'?'':'disabled'} oninput="cur.rate=+this.value;rt()"></label></div><div id=ln>${EL()}</div><button class=b2 onclick="cur.l.push({a:'',q:1,p:0});ul()">+ Ajouter une ligne</button><div id=tt>${TT()}</div><div id=pz>${PZ()}</div><p style="text-align:right;margin-top:30px"><b>${SIG}</b><br>${SIGT}</p></div>`};
+function sv(){if(!cur.ti||!cur.cl)return alert('Renseignez le titre et le nom du client.');const L=db[cur.t],i=L.findIndex(x=>x.id==cur.id),c=JSON.parse(JSON.stringify(cur)),k=db.cli.find(x=>x.n==cur.cl);i<0?L.push(c):L[i]=c;k?(cur.ct&&(k.c=cur.ct),k.a=cur.ad):db.cli.push({id:uid(),n:cur.cl,a:cur.ad,c:cur.ct});log('Enregistré '+cur.n);save();st(cur.n+' enregistré ✔');return 1}
+function nv(d){const L=db[cur.t].slice().sort((a,b)=>a.n<b.n?-1:1),i=L.findIndex(x=>x.id==cur.id),j=i<0?(d<0?L.length-1:-1):i+d;if(j<0||j>=L.length)return alert('Aucun autre document dans ce dossier.');cur=JSON.parse(JSON.stringify(L[j]));render()}
+const DH=d=>{MC=d.cur||'USD';const t=tot(d),f=d.t=='fact';return`<title>${E(d.n)}</title><style>body{font:14px Arial;margin:30px;color:#111}h1{color:#0b1f3a;margin:0}table{width:100%;border-collapse:collapse;margin:14px 0}td,th{border:1px solid #bbb;padding:6px;text-align:left}.r{text-align:right}.h{border-bottom:3px solid #f5b301;padding-bottom:8px;display:flex;justify-content:space-between;align-items:end}.s{margin-top:50px;text-align:right}</style><div class=h><h1>⚡ ${E(db.set.name)}</h1><div style="text-align:right"><b style="font-size:20px">${f?'FACTURE':'DEVIS'} N° ${E(d.n)}</b><br>Date : ${d.d}</div></div><p><b>Objet : ${E(d.ti)}</b></p><p>Client : <b>${E(d.cl)}</b><br>Adresse d'exécution : ${E(d.ad)}${d.ct?'<br>Contacts : '+E(d.ct):''}</p><table><tr><th>N°</th><th>Article</th><th class=r>Nombre</th><th class=r>Prix unitaire</th><th class=r>Total</th></tr>${d.l.map((x,i)=>`<tr><td>${i+1}</td><td>${E(x.a)}</td><td class=r>${x.q}</td><td class=r>${money(x.p)}</td><td class=r>${money(x.q*x.p)}</td></tr>`).join('')}<tr><td colspan=4 class=r>Total articles</td><td class=r>${money(t.s)}</td></tr><tr><td colspan=4 class=r>Main d'œuvre</td><td class=r>${money(t.mo)}</td></tr><tr><td colspan=4 class=r>Imprévus</td><td class=r>${money(t.im)}</td></tr><tr><td colspan=4 class=r><b>Total général</b></td><td class=r><b>${money(t.g)}</b></td></tr><tr><td colspan=4 class=r>${eqv(d)[0]}</td><td class=r>${eqv(d)[1]}</td></tr></table><div class=s><b>${SIG}</b><br>${SIGT}</div>`};
+function pr(){const w=open('','_blank');if(!w)return alert('Autorisez les fenêtres pop-up pour imprimer.');w.document.write(DH(cur)+'<script>print()<\/script>');w.document.close()}
+function sd(){if(!sv())return;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['<!DOCTYPE html><meta charset=utf-8>'+DH(cur)],{type:'text/html'}));a.download=cur.n+'.html';a.click()}
+
+/* ================== VUES ================== */
+const V={
+gest:()=>{if(cur)return ED();if(!G)return`<h2>Gestion des clients</h2><p class=mu>Choisissez une opération.</p><div class=k><div class=card style="cursor:pointer" onclick="G='devis';render()"><h3>1. Devis</h3><span class=mu>${db.devis.length} dans le dossier devis</span></div><div class=card style="cursor:pointer" onclick="G='fact';render()"><h3>2. Facture</h3><span class=mu>${db.fact.length} dans le dossier facture</span></div></div><h3>Clients</h3>`+T(['Client','Contacts','Encaissé (compte)','Reste dû (factures)',''],db.cli.map(c=>[E(c.n),E(c.c),...ac(c.n),`<a class=lk onclick="del('cli','${c.id}')">Supprimer</a>`]));
+return`<h2>Dossier ${G=='fact'?'facture':'devis'}</h2><a class=lk onclick="G=null;q='';render()">← Retour au choix</a><div class=row><button class=btn onclick="nd()">+ ${G=='fact'?'Nouvelle facture':'Nouveau devis'}</button></div><select onchange="sf=this.value;$('#lst').innerHTML=LL()"><option value="*">Toutes les catégories</option><option>Payé</option><option>Partiel</option><option>Non payé</option></select><input id=qs placeholder="Rechercher par numéro, titre ou client" value="${E(q)}" oninput="q=this.value;$('#lst').innerHTML=LL()"><div id=lst>${LL()}</div>`},
+emp:()=>`<h2>Employés et salaires à payer</h2><p class=mu>Les salaires saisis à l'engagement servent de base à la paie.</p><button class=btn onclick="eF()">+ Engager un employé</button>`+T(['Matricule','Nom','Poste','Département','Engagé le','Salaire de base','Indemnités','Statut',''],db.emp.map(e=>[E(e.mat),E(e.nom),E(e.poste),E(e.dept),e.date,money(e.base),money(+e.tr+ +e.lg),e.st,`<a class=lk onclick="eF('${e.id}')">Modifier</a><a class=lk onclick="del('emp','${e.id}')">Supprimer</a>`])),
+pay:()=>{const v=db.pay.find(p=>p.m==mo),r=v?v.rows:calc(mo);return`<h2>Paie et bulletins</h2>${MO()}${v?'<span class=ok>✔ Paie validée le '+v.d+'</span>':'<button class=btn onclick="vP()">Valider la paie du mois</button>'}`+T(['Employé','Base','Indemnités','H. sup.','Brut','Retenues','Net à payer',''],r.map((x,i)=>[E(x.nom),money(x.base),money(x.ind),money(x.hs),money(x.br),money(x.soc+x.imp),'<b>'+money(x.net)+'</b>',`<a class=lk onclick="slip(${i})">Bulletin de paie</a>`]))+`<p><b>Total net : ${money(r.reduce((a,x)=>a+x.net,0))}</b></p>`},
+dg:()=>`<h2>Direction générale</h2><p class=mu>Chaque décision part sous forme de message vers le bureau choisi.</p><button class=btn onclick="mF()">+ Nouvelle décision</button>`+T(['Date','Destinataire','Titre','Message','Lu par',''],db.msg.map(m=>[m.d,m.to=='all'?'Tous les bureaux':R[m.to],E(m.t),WR(m.x),m.r.length,`<a class=lk onclick="del('msg','${m.id}')">Supprimer</a>`])),
+adm:()=>`<h2>Bureau administratif</h2><p class=mu>Accès complet à tous les bureaux, aux utilisateurs et à la synchronisation.</p>
+<div class=card><h3>Utilisateurs</h3><button class=btn onclick="uF()">+ Utilisateur</button>${T(['Identifiant','Bureau',''],db.users.map(u=>[E(u.login),R[u.role],`<a class=lk onclick="uF('${u.id}')">Modifier</a><a class=lk onclick="rp('${u.id}')">Réinitialiser (1234)</a><a class=lk onclick="del('users','${u.id}')">Supprimer</a>`]))}</div><br>
+<div class=card><h3>Paramètres</h3><button class=b2 onclick="sF()">Modifier</button><p class=mu>${E(db.set.name)} — paie en CDF, taux 1 USD = ${db.set.rate} CDF — cotisation ${db.set.soc} % — impôt ${db.set.tax} % — ${db.set.hrs} h/mois — heures sup. ×${db.set.ot}</p></div><br>
+<div class=card><h3>Google Drive, e-mail et sauvegarde</h3>${DI()}<div class=row><button class=btn onclick="dc()">Connecter Google Drive</button><button class=b2 onclick="push(1)">Envoyer maintenant</button><button class=b2 onclick="pull()">Recharger depuis Drive</button><button class=b2 onclick="ex()">Exporter JSON</button><label class=b2 style="margin:6px 0">Importer JSON<input type=file hidden onchange="im(this.files[0])"></label></div><p class=mu style="font-size:12px">Synchronisation automatique toutes les 10 secondes après connexion. Les données restent disponibles hors ligne grâce au stockage local + IndexedDB + file d'attente.</p></div><br>
+<div class=card><h3>Mise à jour du code source</h3>${UC()}<p class=mu style="font-size:12px">Version installée : <b>${APP_VERSION}</b>. La mise à jour est vérifiée automatiquement à chaque visite et toutes les 5 minutes.</p></div><br>
+<div class=card><h3>Notifications envoyées à ${MAIL_ADMIN}</h3>${T(['Date','Utilisateur','Action'],(db.alerts||[]).slice(0,30).map(a=>[a.at,a.from,E(a.subject)]))}</div><br>
+<div class=card><h3>Journal d'activité partagé</h3>${T(['Date','Utilisateur','Action'],db.log.slice(0,40).map(l=>[l.t,E(l.u),E(l.a)]))}</div><br>
+<div class=card><h3>File d'attente hors ligne</h3>${T(['Date','Sauvegarde locale'],getOutbox().slice(-20).map(o=>[o.at,o.u]))}</div>`,
+dash:()=>{const a=db.emp.filter(e=>e.st=='Actif'),ms=a.reduce((s,e)=>s+ +e.base+ +e.tr+ +e.lg,0),sm=t=>db.tx.filter(x=>x.ty==t).reduce((s,x)=>s+cv(x),0),h=/adm|rh|dg/.test(me.role),f=/adm|fin|dg/.test(me.role),big=/adm|dg/.test(me.role),dus=db.fact.reduce((s,d)=>s+Math.max(0,cc(d,tot(d).g-paid(d))),0);
+let o=`<h2>Tableau de bord</h2>${INB()}<div class=k>${h?K('Effectif actif',a.length)+K('Masse salariale mensuelle',money(ms)):''}${f?K('Recettes',money(sm('R')))+K('Dépenses',money(sm('D')))+K('Solde',money(sm('R')-sm('D'))):''}${big?K('Reste dû par les clients',money(dus))+K('Projets en cours',db.proj.filter(p=>p.st=='En cours').length):''}</div>`;
+if(big){const M6=[0,1,2,3,4,5].map(i=>{const d=new Date(new Date().getFullYear(),new Date().getMonth()-5+i,1);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')}),by=t=>M6.map(m=>db.tx.filter(x=>x.ty==t&&x.d.startsWith(m)).reduce((s,x)=>s+cv(x),0)),D=[...db.devis,...db.fact],G3=['Payé','Partiel','Non payé'],PS=['À faire','En cours','Terminé'];
+o+=`<h3>Bilan de l'entreprise</h3><div class=k style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))"><div class=card><h3 style="margin:0">Recettes et dépenses (6 mois, CDF)</h3><span style="color:#1e8449">■ Recettes</span> <span style="color:#c0392b">■ Dépenses</span>${bc(M6.map(m=>m.slice(5)),[by('R'),by('D')],['#1e8449','#c0392b'])}</div><div class=card><h3 style="margin:0">Devis et factures par paiement</h3>${bc(G3,[G3.map(s=>D.filter(d=>st3(d)==s).length)],['#16376a'])}</div><div class=card><h3 style="margin:0">Projets par statut</h3>${bc(PS,[PS.map(s=>db.proj.filter(p=>p.st==s).length)],['#f5b301'])}</div></div>`}
+return o}
+};
+/* Vues heures / finance / projets / messages ajoutées dynamiquement pour éviter conflit avec V déclaré après */
+V.hrs=()=>{const r=db.hrs.filter(x=>x.d.startsWith(mo)&&x.in);return`<h2>Heures de travail</h2><p class=mu>Arrivée attendue à ${AR}, sortie à ${DP}. Après ${AR} : retard, ${money(PEN)} retirés du salaire. Après ${DP} : heures supplémentaires.</p>${MO()}<button class=btn onclick="hF()">+ Pointage</button><h3>Récapitulatif du mois</h3>`+T(['Employé','Jours pointés','Retards','Retenue retards','Heures sup.'],db.emp.map(e=>{const s=r.filter(x=>x.e==e.id),l=s.filter(x=>x.in>AR).length;return[E(e.nom),s.length,l,money(l*PEN),s.reduce((a,x)=>a+ot(x),0).toFixed(2)]}))+`<h3>Détail</h3>`+T(['Date','Employé','Arrivée','Sortie','Retard','Heures sup.',''],r.sort((a,b)=>a.d<b.d?1:-1).map(x=>[x.d,E(nm(x.e)),x.in,x.out,x.in>AR?'<b style="color:#c0392b">Retard</b>':'À l\'heure',ot(x).toFixed(2),`<a class=lk onclick="del('hrs','${x.id}')">Supprimer</a>`]))};
+V.fin=()=>{const t=db.tx,s=y=>t.filter(x=>x.ty==y).reduce((a,x)=>a+cv(x),0);return`<h2>Gestion financière</h2><p class=mu>Totaux en CDF (1 USD = ${db.set.rate} CDF).</p><div class=k>${K('Recettes',money(s('R')))}${K('Dépenses',money(s('D')))}${K('Solde',money(s('R')-s('D')))}</div><button class=btn onclick="tF()">+ Nouvelle opération</button>`+T(['Date','Type','Catégorie','Libellé','Montant',''],t.slice().sort((a,b)=>a.d<b.d?1:-1).map(x=>[x.d,x.ty=='R'?'Recette':'Dépense',E(x.cat),E(x.lib),mf(x.m,x.c||'CDF'),`<a class=lk onclick="del('tx','${x.id}')">Supprimer</a>`]))};
+V.proj=()=>{const P=db.proj;return`<h2>Gestion de projets</h2><div class=k>${['À faire','En cours','Terminé'].map(s=>K(s,P.filter(p=>p.st==s).length)).join('')}</div><button class=btn onclick="pF()">+ Nouveau projet</button>`+T(['Projet','Client','Responsable','Période','Budget','Statut','Avancement',''],P.map(p=>[E(p.n),E(p.cl),E(p.rs),p.d1+' → '+(p.d2||'…'),mf(p.b,p.c||'USD'),p.st,`<div style="background:#e3e8f0;border-radius:6px;min-width:110px"><div style="background:var(--a);width:${Math.min(100,+p.av||0)}%;border-radius:6px;padding:0 6px;font-size:12px">${+p.av||0} %</div></div>`,`<a class=lk onclick="pF('${p.id}')">Modifier</a><a class=lk onclick="del('proj','${p.id}')">Supprimer</a>`]))};
+V.msg=()=>`<h2>Messages</h2>`+T(['Date','De','Titre','Message',''],db.msg.filter(m=>m.to==me.role||m.to=='all').map(m=>{const l=m.r.includes(me.id);return[m.d,E(m.from),(l?'':'● ')+E(m.t),WR(m.x),l?'Lu':`<a class=lk onclick="rd('${m.id}')">Marquer comme lu</a>`]}));
+
+/* ================== HELPERS COMMUNS ================== */
+const DI=()=>`<label>Client ID Google (OAuth)<input id=cid value="${E(cfg.cid||'')}"></label><label>ID du fichier de données sur Drive (vide = création automatique)<input id=fid value="${E(cfg.fid||'')}"></label><label>URL du proxy e-mail (Google Apps Script — facultatif)<input id=mailUrl value="${E(cfg.mailUrl||'')}" placeholder="https://script.google.com/macros/s/.../exec"></label>`;
+const UC=()=>`<label>URL du code source à jour<input id=codeUrl value="${E(cfg.codeUrl||CODE_URL_DEFAULT)}"></label><div class=row><button class=b2 onclick="checkUpdate(1)">Vérifier maintenant</button><button class=b2 onclick="applyUpdate()">Appliquer la mise à jour</button><button class=b2 onclick="clearCode()">Réinitialiser le cache code</button></div>`;
+const LG=()=>`<div class=lg><div class=card><h1 style="color:var(--n);margin:0;font-size:32px">⚡ ${E(db.set.name)}</h1><p class=mu>Application de gestion — v${APP_VERSION}</p><label>Identifiant<input id=l autofocus></label><label>Mot de passe<input id=p type=password onkeydown="event.key=='Enter'&&lo()"></label><button class=btn style="width:100%" onclick="lo()">Se connecter</button><p id=er style="color:#c0392b"></p><details><summary>Synchronisation Google Drive</summary>${DI()}<button class=b2 onclick="dc()">Connecter et charger les données</button></details><p class=mu style="font-size:12px">Première connexion : identifiant admin, mot de passe 1234.</p></div></div>`;
+const AR='08:15',DP='17:30',PEN=5000,mn=t=>{const[a,b]=t.split(':');return+a*60+ +b},ot=x=>x.out>DP?(mn(x.out)-mn(DP))/60:0;
+function mf(n,c){const d=c=='CDF'?0:2;return(+n||0).toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d})+' '+c}
+const cv=x=>(x.c=='USD'?+x.m*db.set.rate:+x.m),cc=(d,v)=>(d.cur=='CDF'?v:v*(+d.rate||db.set.rate)),paid=d=>(d.pay||[]).reduce((a,x)=>a+ +x.m,0);
+const st3=d=>{const g=tot(d).g,p=paid(d);return g>0&&p>=g-.005?'Payé':p>0?'Partiel':'Non payé'};
+const eqv=d=>{const r=+d.rate||db.set.rate,u=d.cur!='CDF',g=tot(d).g;return['Équivalent (1 USD = '+r+' CDF)',mf(u?g*r:g/r,u?'CDF':'USD')]};
+const PZ=()=>{const c=cur.cur||'USD',g=tot(cur).g,p=paid(cur);return`<p><b>Statut : ${st3(cur)}</b> — payé ${mf(p,c)} — reste ${mf(Math.max(0,g-p),c)}</p>`+(cur.pay||[]).map(x=>`<div class=mu>${x.d} : ${mf(x.m,c)}</div>`).join('')};
+const ac=n=>{const A=[...db.devis,...db.fact].filter(d=>d.cl==n);return[money(A.reduce((a,d)=>a+cc(d,paid(d)),0)),money(A.filter(d=>d.t=='fact').reduce((a,d)=>a+Math.max(0,cc(d,tot(d).g-paid(d))),0))]};
+function pm(){if(!cur.ti||!cur.cl)return alert('Renseignez le titre et le nom du client.');F('Encaisser un paiement ('+(cur.cur||'USD')+')',[['m','Montant reçu','number',''],['d','Date','date',today()]],d=>{if(!(+d.m>0))return;cur.pay=cur.pay||[];cur.pay.push({id:uid(),d:d.d,m:+d.m});sv();db.tx.push({id:uid(),d:d.d,ty:'R',c:cur.cur||'USD',cat:'Encaissement client',lib:cur.n+' — '+cur.cl,m:+d.m});log('Paiement '+cur.n);notifyAdmin('Paiement reçu : '+cur.n,'Client : '+cur.cl+'\nMontant : '+mf(+d.m,cur.cur||'USD'))})}
+function hF(){if(!db.emp.length)return alert("Enregistrez d'abord un employé.");F('Pointage',[['e','Employé','select','',db.emp.map(e=>[e.id,e.nom])],['d','Date','date',today()],['in',"Heure d'arrivée",'time','08:00'],['out','Heure de sortie','time','17:30'],['n','Note','text','']],d=>{db.hrs.push({id:uid(),...d});log('Pointage : '+nm(d.e))})}
+function calc(m){return db.emp.filter(e=>e.st=='Actif'&&e.date.slice(0,7)<=m).map(e=>{const s=db.hrs.filter(x=>x.e==e.id&&x.d.startsWith(m)&&x.in),lt=s.filter(x=>x.in>AR).length,tx=+e.base/db.set.hrs,hs=s.reduce((a,x)=>a+ot(x),0)*tx*db.set.ot,ab=lt*PEN,br=+e.base+ +e.tr+ +e.lg+hs-ab,soc=br*db.set.soc/100,imp=br*db.set.tax/100;return{nom:e.nom,mat:e.mat,poste:e.poste,base:+e.base,ind:+e.tr+ +e.lg,hs,ab,lt,br,soc,imp,net:br-soc-imp}})}
+function tF(){F('Nouvelle opération',[['d','Date','date',today()],['ty','Type','select','R',[['R','Recette'],['D','Dépense']]],['c','Devise','select','CDF',[['CDF','CDF'],['USD','USD']]],['cat','Catégorie','text',''],['lib','Libellé','text',''],['m','Montant','number','']],d=>{db.tx.push({id:uid(),...d,m:+d.m});log('Opération : '+d.lib)})}
+function sF(){if(me.role!='adm')return;const s=db.set;F('Paramètres',[['name',"Nom de l'entreprise",'text',s.name],['rate','Taux de change (1 USD = ? CDF)','number',s.rate],['soc','Cotisation sociale (%)','number',s.soc],['tax','Impôt sur salaire (%)','number',s.tax],['hrs','Heures normales par mois','number',s.hrs],['ot','Coefficient heures sup.','number',s.ot]],d=>{db.set={...s,name:d.name,rate:+d.rate,soc:+d.soc,tax:+d.tax,hrs:+d.hrs,ot:+d.ot};log('Paramètres modifiés');notifyAdmin('Paramètres modifiés','Modifiés par '+me.login)})}
+const INB=()=>{const n=db.msg.filter(m=>(m.to==me.role||m.to=='all')&&!m.r.includes(me.id)).length;return n?`<div class=card style="border-left:5px solid var(--a);margin:10px 0;cursor:pointer" onclick="tab='msg';render()"><b>✉ ${n} nouveau(x) message(s) de la direction</b></div>`:''};
+function mF(){if(!/adm|dg/.test(me.role))return;F('Décision à transmettre',[['to','Envoyer à','select','all',[...Object.entries(R),['all','Tous les bureaux']]],['t','Titre','text',''],['x','Message','area','']],d=>{db.msg.unshift({id:uid(),...d,d:today(),from:me.login,r:[]});log('Décision envoyée : '+d.t);notifyAdmin('Nouvelle décision : '+d.t,'Destinataire : '+(d.to=='all'?'Tous les bureaux':R[d.to])+'\nMessage : '+d.x)})}
+const rd=id=>{db.msg.find(m=>m.id==id).r.push(me.id);save();render()},WR=t=>'<div style="white-space:normal;min-width:260px">'+E(t)+'</div>';
+function pF(id){if(me.role!='adm')return;const p=db.proj.find(x=>x.id==id)||{};F(id?'Modifier le projet':'Nouveau projet',[['n','Nom du projet','text',p.n||''],['cl','Client','text',p.cl||''],['rs','Responsable','text',p.rs||''],['d1','Début','date',p.d1||today()],['d2','Fin prévue','date',p.d2||''],['b','Budget','number',p.b||0],['c','Devise','select',p.c||'USD',[['USD','USD'],['CDF','CDF']]],['st','Statut','select',p.st||'À faire',[['À faire','À faire'],['En cours','En cours'],['Terminé','Terminé']]],['av','Avancement (%)','number',p.av||0]],d=>{id?Object.assign(p,d):db.proj.push({id:uid(),...d});log('Projet '+d.n)})}
+const short=n=>n>=1e6?(n/1e6).toFixed(1)+' M':n>=1e3?Math.round(n/1e3)+' k':Math.round(n);
+function bc(L,S,C){const mx=Math.max(1,...S.flat()),w=50+L.length*74;return`<svg viewBox="0 0 ${w} 190" style="width:100%;max-width:${w*1.5}px">`+L.map((l,i)=>S.map((s,j)=>{const h=s[i]/mx*130;return`<rect x="${50+i*74+j*28}" y="${160-h}" width="24" height="${h}" fill="${C[j]}"><title>${E(l)} : ${Math.round(s[i]).toLocaleString('fr-FR')}</title></rect>`}).join('')+`<text x="${50+i*74+S.length*14-2}" y="178" font-size="11" text-anchor="middle" fill="#66728a">${E(l)}</text>`).join('')+`<line x1="46" x2="${w}" y1="160" y2="160" stroke="#cfd6e3"/><text x="2" y="30" font-size="10" fill="#66728a">${short(mx)}</text></svg>`}
+
+/* ================== CONNEXION + SYNCHRO ================== */
+async function lo(){
+ const login=$('#l').value.trim(),h=await H($('#p').value);
+ const u=db.users.find(x=>x.login==login&&x.pw==h);
+ if(!u)return $('#er').textContent='Identifiant ou mot de passe incorrect.';
+ me=u;tab='';
+ if(window.Notification&&Notification.permission=='default'){try{Notification.requestPermission()}catch(e){}}
+ log('Connexion de '+me.login);
+ await save();
+ render();
+ notifyAdmin('Connexion de '+me.login,'Utilisateur : '+me.login+'\nBureau : '+R[me.role]+'\nDate : '+new Date().toLocaleString('fr-FR')+'\nNavigateur : '+navigator.userAgent);
+ if(cfg.fid){if(!tok&&cfg.was){try{gAuth(()=>{pull(1);st('Synchronisé ✔')},1)}catch(e){}}if(tok){st('Synchronisation…');await pull(1)}}
+}
+
+/* ================== RENDU ================== */
+function render(){MC='CDF';if(!me){$('#app').innerHTML=LG()+`<div id=sy>☁ ${tok?'Drive connecté':'Drive non connecté'}</div>`;return}const m=M.filter(x=>x[2].includes(me.role));if(!m.find(x=>x[0]==tab))tab=m[0][0];
+const last=(db.log[0]||{});
+$('#app').innerHTML=`<div class=shell><nav><div class=brand>⚡ ${E(db.set.name)}</div>${m.map(x=>`<a class="${x[0]==tab?'on':''}" onclick="tab='${x[0]}';render()">${x[1]}</a>`).join('')}<div style="margin-top:auto;font-size:13px"><div>${E(me.login)} — ${R[me.role]}</div><div id=st style="color:var(--a)"></div><a onclick="me=null;render()">⏻ Déconnexion</a></div></nav><main>${V[tab]()}</main></div><div id=sy>☁ ${tok?(cfg.fid?'Synchronisation active (10 s)':'Drive non configuré'):'Drive non connecté'}</div>${last.u?`<div id=live>👥 Dernière action : ${E(last.u)} — ${E(last.a)}</div>`:''}`}
+
+/* ================== GOOGLE DRIVE ================== */
+function gAuth(cb,silent){if(!window.google)return silent?0:alert("Bibliothèque Google non chargée : vérifiez la connexion internet et ouvrez l'application depuis une adresse http(s).");if(!cfg.cid)return silent?0:alert('Renseignez le Client ID Google.');
+try{google.accounts.oauth2.initTokenClient({client_id:cfg.cid,scope:'https://www.googleapis.com/auth/drive',callback:r=>{if(r&&r.access_token){saveTok(r.access_token,Date.now()+(+r.expires_in||3600)*1000);cb&&cb()}else if(!silent)alert('Connexion Google refusée.')}}).requestAccessToken(silent?{prompt:''}:{})}catch(e){if(!silent)alert('Connexion Google impossible : '+e.message)}}
+function dc(){cfg={cid:$('#cid').value.trim(),fid:$('#fid').value.trim(),mailUrl:$('#mailUrl').value.trim(),codeUrl:$('#codeUrl').value.trim()||CODE_URL_DEFAULT,was:1};localStorage.setItem(CF,JSON.stringify(cfg));gAuth(async()=>{cfg.fid?await pull():push(1);st('Drive connecté ✔');if(!me)render()})}
+const gf=(u,o={})=>fetch(u,{...o,headers:{Authorization:'Bearer '+tok,...(o.headers||{})}});
+
+async function pull(silent){
+ if(!tok||!cfg.fid)return;
+ if(busy())return;
+ try{
+  const r=await gf('https://www.googleapis.com/drive/v3/files/'+cfg.fid+'?alt=media');
+  if(r.status==401){clrTok();return st('Session Drive expirée : reconnectez-vous')}
+  if(!r.ok)return st('Erreur Drive '+r.status);
+  const d=await r.json();
+  if(d&&d.u>db.u){
+   /* Fusion intelligente : conserve les données locales les plus récentes */
+   db=d;fix();await saveLocal();
+   if(me)me=db.users.find(x=>x.id==me.id)||me;
+   render();st('Synchronisé ✔ '+new Date().toLocaleTimeString('fr-FR'));
+  }else if(!silent)st('À jour ✔');
+  /* Si des écritures en attente, on les renvoie */
+  if(getOutbox().length){clrOutbox();push(1)}
+ }catch(e){st('Drive injoignable (hors ligne)')}
+}
+
+function push(n){clearTimeout(pt);pt=setTimeout(async()=>{if(!tok)return;try{
+ if(!cfg.fid){const r=await gf('https://www.googleapis.com/drive/v3/files?fields=id',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'LIGHT_ELEC_data.json',mimeType:'application/json'})});cfg.fid=(await r.json()).id;localStorage.setItem(CF,JSON.stringify(cfg))}
+ const r=await gf('https://www.googleapis.com/upload/drive/v3/files/'+cfg.fid+'?uploadType=media',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(db)});
+ if(r.status==401){clrTok();return st('Session Drive expirée : reconnectez-vous')}
+ if(r.ok){clrOutbox();st('Enregistré sur Drive ✔ '+new Date().toLocaleTimeString('fr-FR'))}
+ else st('Erreur Drive '+r.status)
+}catch(e){addOutbox({u:db.u,at:new Date().toISOString()});st('Hors ligne — sauvegarde locale conservée')}},n?0:800)}
+
+/* ================== MISE À JOUR AUTOMATIQUE DU CODE ================== */
+let codePoll=null,lastCodeCheck=0;
+async function checkUpdate(force){
+ if(!cfg.codeUrl)return;
+ if(!force && Date.now()-lastCodeCheck<300000) return; /* 5 min */
+ lastCodeCheck=Date.now();
+ try{
+  const r=await fetch(cfg.codeUrl+'?t='+Date.now(),{cache:'no-store'});
+  if(!r.ok)return;
+  const txt=await r.text();
+  if(!/<!DOCTYPE html/i.test(txt)||txt.length<1000)return;
+  const vMatch=txt.match(/APP_VERSION\s*=\s*['"]([^'"]+)['"]/);
+  const remoteV=vMatch?vMatch[1]:null;
+  let localV=null;try{localV=JSON.parse(localStorage.getItem(CK)||'{}').v}catch(e){}
+  if(remoteV&&remoteV!==APP_VERSION&&remoteV!==localV){
+   /* Nouveau code détecté : on le stocke et on prévient l'utilisateur */
+   try{localStorage.setItem(CK,JSON.stringify({v:remoteV,txt,at:Date.now()}))}catch(e){}
+   if(confirm('Nouvelle version '+remoteV+' disponible (version actuelle '+APP_VERSION+').\nAppliquer la mise à jour maintenant ?')){
+    applyUpdate();
+   }
+  }
+ }catch(e){/* hors ligne : silencieux */}
+}
+async function applyUpdate(){
+ let o=null;try{o=JSON.parse(localStorage.getItem(CK)||'{}')}catch(e){}
+ if(!o.txt){if(confirm('Aucune mise à jour en cache. Vérifier maintenant ?'))checkUpdate(1);return}
+ try{
+  /* Sauvegarde de secours avant remplacement */
+  await saveLocal();await idbSet('backup_before_update',{db,at:Date.now(),v:APP_VERSION});
+  /* On écrit le nouveau code dans le document courant */
+  const newDoc=o.txt;
+  document.open();document.write(newDoc);document.close();
+ }catch(e){alert('Impossible d\'appliquer la mise à jour : '+e.message)}
+}
+function clearCode(){localStorage.removeItem(CK);alert('Cache du code réinitialisé.')}
+
+/* ================== SYNCHRONISATION AUTOMATIQUE ================== */
+let lastAuto=0;
+async function autoSync(){
+ if(!me||!tok||!cfg.fid)return;
+ if(busy())return;
+ if(Date.now()-lastAuto<3000)return;
+ lastAuto=Date.now();
+ await pull(1);
+}
+setInterval(autoSync,SYNC_MS);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)autoSync()});
+window.addEventListener('online',()=>{setNet(true);st('Connexion rétablie');autoSync()});
+window.addEventListener('offline',()=>{setNet(false);st('Hors ligne — les données restent disponibles')});
+function setNet(online){
+ const n=$('#net');
+ if(!online){n.className='on';n.textContent='⚠ Hors ligne — sauvegarde locale active'}
+ else {n.className='off';n.textContent='✓ En ligne';setTimeout(()=>n.className='',3000)}
+}
+/* Démarrage de la surveillance du code (toutes les 5 minutes + à chaque visite) */
+codePoll=setInterval(()=>checkUpdate(),300000);
+
+/* ================== BOOT ================== */
+init().then(async()=>{
+ loadTok();render();
+ /* Vérifier la mise à jour à chaque visite */
+ checkUpdate();
+ /* Si déjà connecté précédemment et Drive configuré, resynchroniser */
+ if(tok&&cfg.fid&&me){st('Synchronisation…');pull(1)}
+ /* Si la file d'attente contient des écritures et qu'on est en ligne, pousser */
+ if(getOutbox().length&&navigator.onLine){if(tok&&cfg.fid)push(1)}
+});
+</script></body></html>
